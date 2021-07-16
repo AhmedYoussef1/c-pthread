@@ -38,12 +38,11 @@ station_wait_for_train(struct station *station)
 	pthread_mutex_unlock(&(station->lock));
 }
 
-//this function executes in main thread in the tester
 void
 station_on_board(struct station *station)
 {
 	pthread_mutex_lock(&(station->lock));
-    	station->on_board --;
+    		station->on_board --;
 		station->waiters --;
 		station->seats --;
 	pthread_mutex_unlock(&(station->lock));
